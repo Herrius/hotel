@@ -16,11 +16,11 @@ function validar() {
         alert("Es necesario que rellene todos los campos obligatorios que estan con este simbolo (*)")
         return false;
     }
-    else if(expnombre.test(nombre)){
+    else if(!expnombre.test(nombre)){
         alert("La celda nombres no acepta números ni caracteres especiales")
         return false;
     }
-    else if(expnombre.test(apellido)){
+    else if(!expnombre.test(apellido)){
         alert("La celda apellido no acepta números ni caracteres especiales")
         return false;
     }
