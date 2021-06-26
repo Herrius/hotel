@@ -91,22 +91,22 @@ function truncateDate(date) {
                     									</div>
                                             <div class="col-md-3">
                     							<label for="">Adultos</label>
-                    							<input class="form-control" type="number" value="1" min="1" id="camas" onkeypress="return false;" required>
+                    							<input class="form-control" type="number" value="1" min="1" onkeypress="return false;" required>
                     						</div>
 
                                               <div class="col-md-3">
                     							<label for="">Niños</label>
-                    							<input class="form-control" type="number" value="0" min="0" id="camas2"  onkeypress="return false;" required>
+                    							<input class="form-control" type="number" value="0" min="0"  onkeypress="return false;" required>
                     						</div>
 
                                              <div class="col-md-3">
                     							<label for="">Habitacion</label>
-                    							<input class="form-control" type="number" value="1" min="1"id="habitacion" onkeypress="return false;" required>
+                    							<input class="form-control" type="number" value="1" min="1" onkeypress="return false;" required>
                     						</div>
                     						
                     						<div class="col-md-3">
                     							<br>
-                    							<button id="boton" class="btn-btn-block btn-primary mt-3" onclick="myFunction()">Check Availability</button>
+                    							<button class="btn-btn-block btn-primary mt-3">Check Availability</button>
                     						</div>
 
                     					</div>
@@ -117,20 +117,6 @@ function truncateDate(date) {
        source: 'ajax-city-search.php',
      });
   });
-
-
-</script>
-
-<script>
-function myFunction() {
-  var habitacion=document.getElementById("habitacion").value;
-  sessionStorage.setItem('habitacion',habitacion);
-  console.log(sessionStorage.getItem('habitacion'));
-  var camas= parseInt(document.getElementById("camas").value)+parseInt(document.getElementById("camas2").value);
-  sessionStorage.setItem('camas',camas);
-  console.log(sessionStorage.getItem('camas'));
-  
-}
 </script>
                     			</div>
                     		</div>
