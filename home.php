@@ -17,16 +17,27 @@
                                              <input type="text" name="city" id="search_city" placeholder="" class="form-control" required>  
     
                                              <script>
+											  var getDate = function (input) {
+    return new Date(input.date.valueOf());
+}
 											$(document).ready(function() {
   var dateInput = $('input[name="date"]'); // Our date input has the name "date"
+  var dateInputF = $('input[name="date_out"]'); 
+ 
   
+  console.log(Date.now());
   dateInput.datepicker({
     format: 'yyyy-mm-dd',
     
     todayHighlight: true,
     autoclose: true,
+	
     startDate: truncateDate(new Date()) // <-- THIS WORKS
-  });
+	
+  }).on('changeDate',
+    function (selected) {
+        $('#date_out').datepicker('setStartDate', getDate(selected));
+    });
 
   $('#date').datepicker('setStartDate', truncateDate(new Date())); // <-- SO DOES THIS
 });
@@ -40,6 +51,9 @@ function truncateDate(date) {
     </script>
 	
 	 <script>
+	 var getDate = function (input) {
+    return new Date(input.date.valueOf());
+}
 											$(document).ready(function() {
   var dateInput = $('input[name="date_out"]'); 
  
@@ -49,7 +63,10 @@ function truncateDate(date) {
     todayHighlight: true,
     autoclose: true,
     startDate: truncateDate(new Date()) // <-- THIS WORKS
-  });
+  }).on('changeDate',
+    function (selected) {
+        $('#date').datepicker('setEndDate', getDate(selected));
+    });;
 
   $('#date_out').datepicker('setStartDate', truncateDate(new Date())); 
 });
