@@ -292,16 +292,11 @@
 
           <h4 class="mb-3">Payment</h4>
 
-          <div class="my-3 form-check form-check-inline">
-            <div class="form-check inline">
-              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" required>
-              <label class="form-check-label" for="credit">Credit card</label>
-            </div>
-            <div class="form-check inline">
-              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-              <label class="form-check-label" for="debit">Debit card</label>
-            </div>
-          </div>
+          <select class="form-select" id="card" onchange="ShowSelected();" required>
+            <option value="Visa" >Visa</option>
+            <option value="Mastercard">Mastercard</option>
+            <option value="Amex">Amex</option>
+          </select>
 
           <div class="row gy-3">
             <div class="col-md-6">
@@ -348,7 +343,7 @@
 
           <hr class="my-4">
 
-          <button class="w-100 btn btn-primary btn-lg" type="submit" id="checkout">Continue to checkout</button>
+          <button class="w-100 btn btn-primary btn-lg" type="submit" onclick="checkout()">Continue to checkout</button>
         </form>
 </div>
 <script src="js/pago.js"></script>
