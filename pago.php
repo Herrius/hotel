@@ -294,16 +294,12 @@
 
           <div class="my-3 form-check form-check-inline">
             <div class="form-check inline">
-              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" required>
               <label class="form-check-label" for="credit">Credit card</label>
             </div>
             <div class="form-check inline">
               <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
               <label class="form-check-label" for="debit">Debit card</label>
-            </div>
-            <div class="form-check inline">
-              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-              <label class="form-check-label" for="paypal">PayPal</label>
             </div>
           </div>
 
@@ -355,3 +351,4 @@
           <button class="w-100 btn btn-primary btn-lg" type="submit" id="checkout">Continue to checkout</button>
         </form>
 </div>
+<script src="js/pago.js"></script>
