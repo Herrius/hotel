@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="form-content">
-                  <form action="" method="POST" id="formulario-reserva">
+                  <form action="index.php?page=pago" method="POST" id="formulario-reserva">
                     <div class="row">
                     <h2>Datos generales</h2>
                         

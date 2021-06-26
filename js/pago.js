@@ -6,6 +6,7 @@ var debit=document.getElementById("debit")
 var cc_name=document.getElementById("cc-name")
 var cc_number=document.getElementById("cc-number")
 var msg = "Valor incorrecto";
+
 const EXPNOMBRE=/^[a-zA-ZÀ-ÿ\s]{1,40}$/;
 VISA = /^4[0-9]{3}-?[0-9]{4}-?[0-9]{4}-?[0-9]{4}$/;
 MASTERCARD = /^5[1-5][0-9]{2}-?[0-9]{4}-?[0-9]{4}-?[0-9]   {4}$/;
