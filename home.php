@@ -17,16 +17,58 @@
                                              <input type="text" name="city" id="search_city" placeholder="" class="form-control" required>  
     
                                              <script>
+											$(document).ready(function() {
+  var dateInput = $('input[name="date"]'); // Our date input has the name "date"
+  
+  dateInput.datepicker({
+    format: 'yyyy-mm-dd',
+    
+    todayHighlight: true,
+    autoclose: true,
+    startDate: truncateDate(new Date()) // <-- THIS WORKS
+  });
+
+  $('#date').datepicker('setStartDate', truncateDate(new Date())); // <-- SO DOES THIS
+});
+
+function truncateDate(date) {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+}
+												 
+											
+
+    </script>
+	
+	 <script>
+											$(document).ready(function() {
+  var dateInput = $('input[name="date_out"]'); 
+ 
+  dateInput.datepicker({
+     format: 'yyyy-mm-dd',
+ 
+    todayHighlight: true,
+    autoclose: true,
+    startDate: truncateDate(new Date()) // <-- THIS WORKS
+  });
+
+  $('#date_out').datepicker('setStartDate', truncateDate(new Date())); 
+});
+
+function truncateDate(date) {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+}
+												 
+											
 
     </script>
                     						</div>
                                             <div class="col-md-3">
                     							<label for="">Check-in Date</label>
-                    							<input type="text" class="form-control datepicker" name="date_in" autocomplete="off" required>
+                    							<input class="form-control" id="date" name="date"  type="text" />
                     						</div>
                     						<div class="col-md-3">
                     							<label for="">Check-out Date</label>
-                    							<input type="text" class="form-control datepicker" name="date_out" autocomplete="off" required>
+                    							<input type="text" class="form-control datepicker" name="date_out" id="date_out" autocomplete="off" required>
                     						</div>
                                             <div class="col-md-3">
                     									</div>
