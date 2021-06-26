@@ -1,4 +1,4 @@
- <!-- Masthead-->
+﻿ <!-- Masthead-->
         <header class="masthead">
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-center text-center">
@@ -7,14 +7,42 @@
                     		<div class="card-body">
                     			<div class="container-fluid">
                     				<form action="index.php?page=list" id="filter" method="POST">
+                                                                            
+                                     
+                                        
                     					<div class="row">
-                    						<div class="col-md-3">
-                    							<label for="">Chech-in Date</label>
-                    							<input type="text" class="form-control datepicker" name="date_in" autocomplete="off">
+                                            
+                                            <div class="col-md-3">
+                                              <label for="">¿ A que lugar?</label>
+                                             <input type="text" name="city" id="search_city" placeholder="" class="form-control" required>  
+    
+                                             <script>
+
+    </script>
+                    						</div>
+                                            <div class="col-md-3">
+                    							<label for="">Check-in Date</label>
+                    							<input type="text" class="form-control datepicker" name="date_in" autocomplete="off" required>
                     						</div>
                     						<div class="col-md-3">
-                    							<label for="">Chech-out Date</label>
-                    							<input type="text" class="form-control datepicker" name="date_out" autocomplete="off">
+                    							<label for="">Check-out Date</label>
+                    							<input type="text" class="form-control datepicker" name="date_out" autocomplete="off" required>
+                    						</div>
+                                            <div class="col-md-3">
+                    									</div>
+                                            <div class="col-md-3">
+                    							<label for="">Adultos</label>
+                    							<input class="form-control" type="number" value="1" min="1" onkeypress="return false;" required>
+                    						</div>
+
+                                              <div class="col-md-3">
+                    							<label for="">Niños</label>
+                    							<input class="form-control" type="number" value="0" min="0"  onkeypress="return false;" required>
+                    						</div>
+
+                                             <div class="col-md-3">
+                    							<label for="">Habitacion</label>
+                    							<input class="form-control" type="number" value="1" min="1" onkeypress="return false;" required>
                     						</div>
                     						
                     						<div class="col-md-3">
@@ -24,6 +52,13 @@
 
                     					</div>
                     				</form>
+                                    <script type="text/javascript">
+  $(function() {
+     $( "#search_city" ).autocomplete({
+       source: 'ajax-city-search.php',
+     });
+  });
+</script>
                     			</div>
                     		</div>
                     	</div>
