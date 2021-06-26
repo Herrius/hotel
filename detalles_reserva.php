@@ -28,7 +28,7 @@
                         <div class="col-md-6">
                             <label >Nombres (*)</label>
                             <div class="form-group">
-                                <input type="text" id="nombre" class="form-control" value="" required/>
+                                <input type="text" id="nombre" name="nombre" class="form-control" value="" required/>
                             </div>    
                         </div>
                         <div class="col-md-6">

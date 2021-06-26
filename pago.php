@@ -9,36 +9,36 @@
         </div>
     </div>
 </header>
+<?php
+  $nombre=$_POST["nombre"];
+?>
 <!-- bloque de espacio -->
 <section class="page-section"></section>
 <!-- contenido de la pagina web -->
 <div class="container">
+    <h4><?php echo $nombre;?></h4>
     <table class="table">
     <thead>
         <tr>
         <th scope="col">N°</th>
         <th scope="col">Habitacion</th>
         <th scope="col">Camas</th>
+        <th scope="col">Tipo de habitacion</th>
         <th scope="col">Precio</th>
         </tr>
     </thead>
     <tbody>
         <tr>
         <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        </tr>
-        <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        </tr>
-        <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
+        <td>1</td>
+        <td>2</td>
+        <td>
+          <select class="form-select" id="room" required>
+            <option>Simple</option>
+            <option>Lujoso</option>
+          </select>
+        </td>
+        <td>$120</td>
         </tr>
     </tbody>
     </table> 

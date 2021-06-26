@@ -48,6 +48,3 @@
 
 })(jQuery); // End of use strict
 
-$('.book_now').click(function mensaje() {
-  
-})

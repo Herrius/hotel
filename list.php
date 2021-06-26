@@ -68,7 +68,9 @@ $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d',strtot
 										<?php echo $cat_arr[$row['category_id']]['name'] ?>
 									</b></h4>
 									<div class="align-self-end mt-5">
-										<button class="btn btn-primary  float-right book_now" name="book_now" type="button">Book now</button>
+										<form action="detalles_reserva.php" method="POST">
+											<button class="btn btn-primary  float-right book_now" type="submit">Book now</button>
+										</form>
 									</div>
 								</div>
 							</div>
