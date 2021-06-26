@@ -28,7 +28,7 @@ function validar() {
         alert("El correo no es valido")
         return false;
     }
-    else if(correo!==concorreo){
+    else if(correo!=concorreo){
         alert("La confirmacion del correo debe ser igual al registrado anteriormente")
         return false;
     }
