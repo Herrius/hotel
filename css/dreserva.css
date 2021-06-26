@@ -29,3 +29,11 @@
     background: #0062cc;
     color: #fff;
 }
+
+.circlex{
+    fill: red;
+}
+
+.error{
+    color:red;
+}
