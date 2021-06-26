@@ -4,7 +4,7 @@ var credit=document.getElementById("credit")
 var debit=document.getElementById("debit")
 var cc_name=document.getElementById("cc-name")
 var cc_number=document.getElementById("cc-number")
-
+var price=document.getElementById("price")
 const EXPNOMBRE=/^[a-zA-ZÀ-ÿ\s]{1,40}$/;
 VISA = /^4[0-9]{3}-?[0-9]{4}-?[0-9]{4}-?[0-9]{4}$/;
 MASTERCARD = /^5[1-5][0-9]{2}-?[0-9]{4}-?[0-9]{4}-?[0-9]   {4}$/;
@@ -75,8 +75,23 @@ function isValidCard(tarjeta) {
 function ShowSelected()
 {
     var card=document.getElementById("card").value;
+    
  
 }
+function ShowSelectedroom()
+{
+    var room=document.getElementById("room").value;
+    var num=parseInt(sessionStorage.getItem('habitacion'));
+    var temp=0;
+    if(room=="Simple"){
+        temp=120*num
+    }
+    else{
+        temp=500*num
+    }
+    price.innerHTML="$"+temp;
+}
+
 
 function validar(){
     if(country.value==="Escoga uno..."){
@@ -109,3 +124,4 @@ function soloNumeros(e){
 function checkout(){
     validar();
 }
+

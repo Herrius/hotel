@@ -11,12 +11,16 @@
 </header>
 <?php
   $nombre=$_POST["nombre"];
+  $apellido=$_POST["apellido"];
+  $email=$_POST["email"];
+  $time=$_POST["time"];
 ?>
 <!-- bloque de espacio -->
 <section class="page-section"></section>
 <!-- contenido de la pagina web -->
 <div class="container">
-    <h4><?php echo $nombre;?></h4>
+    <h4><?php echo $nombre." ".$apellido;?></h4>
+    <p><?php print($email."|".$time)?></p>
     <table class="table">
     <thead>
         <tr>
@@ -43,12 +47,12 @@
      sessionStorage.getItem('camas');
 		</script></td>
         <td>
-          <select class="form-select" id="room" required>
-            <option>Simple</option>
-            <option>Lujoso</option>
+          <select class="form-select" id="room" onclick="ShowSelectedroom()">
+            <option value="Simple">Simple</option>
+            <option value="Lujoso">Lujoso</option>
           </select>
         </td>
-        <td>$120</td>
+        <td id="price">$120</td>
         </tr>
     </tbody>
     </table> 
