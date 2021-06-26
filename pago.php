@@ -28,13 +28,17 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+    <tr>
         <th scope="row">1</th>
-        <td><script>
+        <td>
+		<div id="player-name"></div>
+		<script>
 		document.getElementById('player-name').innerHTML = 
      sessionStorage.getItem('habitacion');
 		</script></td>
-        <td><script>
+        <td>
+		<div id="camasl"></div>
+		<script>
 		document.getElementById('camasl').innerHTML = 
      sessionStorage.getItem('camas');
 		</script></td>
