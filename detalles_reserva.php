@@ -26,41 +26,25 @@
                     <h2>Datos generales</h2>
                         
                         <div class="col-md-6">
-                            <label for="nombre">Nombres (*)</label>
+                            <label >Nombres (*)</label>
                             <div class="form-group">
-                                <input type="text" id="nombre" class="form-control" name="nombre" value="" required/>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="circlex" viewBox="0 0 16 16">
-                                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-                                </svg>
-                                <p class="error">Ingrese correctamente el nombre: No puede contener números ni caracteres especiales</p>
+                                <input type="text" id="nombre" class="form-control" value="" required/>
                             </div>    
                         </div>
                         <div class="col-md-6">
-                        <label for="apellido">Apellidos (*)</label>
+                        <label >Apellidos (*)</label>
                             <div class="form-group">
-                                <input type="text" id="apellido" class="form-control" name="nombre" value="" required/>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="circlex" viewBox="0 0 16 16">
-                                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-                                </svg>
-                                <p class="error">Ingrese correctamente el apellido: No puede contener números ni caracteres especiales</p>
+                                <input type="text" id="apellido" class="form-control"  value="" required/>
                             </div>
                             
                         </div>
                         <div class="form-group" style="width:50%;">
-                          <label for="apellido">Correo electrónico  (*)</label>
+                          <label >Correo electrónico  (*)</label>
                            <input type="email" class="form-control" id="correo" value="" required/>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="circlex" viewBox="0 0 16 16">
-                                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-                            </svg>
-                            <p class="error">Ingrese correctamente el correo electronico: El formato es correo@correo.com</p>
                         </div>
                         <div class="form-group" style="width:50%;">
-                          <label for="apellido"> Confirmar correo electrónico  (*)</label>
+                          <label > Confirmar correo electrónico  (*)</label>
                            <input type="email" class="form-control" id="concorreo" value="" required/>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="circlex" viewBox="0 0 16 16">
-                                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-                            </svg>
-                            <p class="error">Ingrese el mismo correo electrónico</p>
                         </div>
                         
                         
@@ -122,7 +106,7 @@
                     </div>
                     </br>
                     </br>
-                    <button type="submit" class="btnSubmit">Siguiente: Ultimos datos  ></button>
+                    <button type="submit" class="btnSubmit" onclick="validar()">Siguiente: Ultimos datos  ></button>
                   </form>
                 </div>
             </div>
@@ -131,19 +115,6 @@
 </html>
 
 <script>
-  function validar() {
-      var nombres,apellidos,correo,concorreo,nombrecliente,nombrecliente,correocliente;
-      nombres=document.getElementById("nombre").value;
-      apellidos=document.getElementById("apellido").value;
-      correo=document.getElementById("correo").value;
-      concorreo=document.getElementById("concorreo").value;
-      nombrecliente=document.getElementById("nombrecliente").value;
-      correocliente=document.getElementById("correocliente").value;
-      if(nombres===""){
-          alert("El campo nombre está vacio")
-          return false;
-      }
-  }
 
   function esconder_div(){
     document.getElementById("hide").style.display="none";
