@@ -30,14 +30,8 @@
     <tbody>
         <tr>
         <th scope="row">1</th>
-        <td><script>
-		document.getElementById('player-name').innerHTML = 
-     sessionStorage.getItem('habitacion');
-		</script></td>
-        <td><script>
-		document.getElementById('camasl').innerHTML = 
-     sessionStorage.getItem('camas');
-		</script></td>
+        <td>1</td>
+        <td>2</td>
         <td>
           <select class="form-select" id="room" required>
             <option>Simple</option>
