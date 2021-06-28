@@ -4,8 +4,8 @@ var credit=document.getElementById("credit")
 var debit=document.getElementById("debit")
 var cc_name=document.getElementById("cc-name")
 var cc_number=document.getElementById("cc-number")
-
-const EXPNOMBRE=/^[a-zA-ZÀ-ÿ\s]{1,40}$/;
+var price=document.getElementById("price")
+EXPNOMBRE=/^[a-zA-ZÀ-ÿ\s]{1,40}$/;
 VISA = /^4[0-9]{3}-?[0-9]{4}-?[0-9]{4}-?[0-9]{4}$/;
 MASTERCARD = /^5[1-5][0-9]{2}-?[0-9]{4}-?[0-9]{4}-?[0-9]   {4}$/;
 AMEX = /^3[47][0-9-]{16}$/;
@@ -75,8 +75,23 @@ function isValidCard(tarjeta) {
 function ShowSelected()
 {
     var card=document.getElementById("card").value;
+    
  
 }
+function ShowSelectedroom()
+{
+    var room=document.getElementById("room").value;
+    var num=parseInt(sessionStorage.getItem('habitacion'));
+    var temp=0;
+    if(room=="Simple"){
+        temp=120*num
+    }
+    else{
+        temp=500*num
+    }
+    price.innerHTML="$"+temp;
+}
+
 
 function validar(){
     if(country.value==="Escoga uno..."){
@@ -84,7 +99,7 @@ function validar(){
     else if(phone.value===""){
         alert("debe colocar un numero telefonico")
     }
-    else if(!(EXPNOMBRE.test(cc_name)) ){
+    else if(!EXPNOMBRE.test(cc_name.value)){
         alert("Coloque un nombre de propietario valido")
     }
     else {
@@ -107,5 +122,14 @@ function soloNumeros(e){
 }
 
 function checkout(){
-    validar();
+    
 }
+
+const element = document.querySelector('form');
+element.addEventListener('submit', event => {
+  if(!validar()){
+  event.preventDefault();
+  // actual logic, e.g. validate the form
+  console.log('Form submission cancelled.');
+  }
+});

@@ -34,13 +34,13 @@
                         <div class="col-md-6">
                         <label >Apellidos (*)</label>
                             <div class="form-group">
-                                <input type="text" id="apellido" class="form-control"  value="" required/>
+                                <input type="text" id="apellido" name="apellido" class="form-control"  value="" required/>
                             </div>
                             
                         </div>
                         <div class="form-group" style="width:50%;">
                           <label >Correo electrónico  (*)</label>
-                           <input type="email" class="form-control" id="correo" value="" required/>
+                           <input type="email" class="form-control" name="email" id="correo" value="" required/>
                         </div>
                         <div class="form-group" style="width:50%;">
                           <label > Confirmar correo electrónico  (*)</label>
@@ -102,7 +102,7 @@
                     <p>Recepción 24 horas – ¡Tendrás ayuda siempre que la necesites!</p>
                     <div class="form-check">
                       <b><label for="inputMDEx1">Añade tu hora de llegada aproximada (Opcional) </label></b>
-                      <input type="time" id="inputMDEx1" class="form-control" style="width:12%">
+                      <input type="time" id="inputMDEx1" name="time" class="form-control" style="width:12%">
                     </div>
                     </br>
                     </br>
