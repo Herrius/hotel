@@ -2,7 +2,7 @@
 include'admin/db_connect.php';
  
 function get_city($conn , $term){ 
- $query = "SELECT * FROM rooms WHERE Lugar LIKE '%".$term."%' ORDER BY Lugar ASC";
+ $query = "SELECT * FROM rooms WHERE Lugar LIKE '%".$term."%' GROUP BY Lugar";
  $result = mysqli_query($conn, $query); 
  $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
  return $data; 

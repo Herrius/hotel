@@ -14,78 +14,62 @@
                                             
                                             <div class="col-md-3">
                                               <label for="">¿ A que lugar?</label>
-                                             <input type="text" name="city" id="search_city" placeholder="" class="form-control" required>  
+                                             <input type="text" name="search_city" id="search_city" placeholder="" class="form-control" required>  
     
                                              <script>
 											  var getDate = function (input) {
-    return new Date(input.date.valueOf());
-}
-											$(document).ready(function() {
-  var dateInput = $('input[name="date"]'); // Our date input has the name "date"
-  var dateInputF = $('input[name="date_out"]'); 
- 
-  
-  console.log(Date.now());
-  dateInput.datepicker({
-    format: 'yyyy-mm-dd',
-    
-    todayHighlight: true,
-    autoclose: true,
-	
-    startDate: truncateDate(new Date()) // <-- THIS WORKS
-	
-  }).on('changeDate',
-    function (selected) {
-        $('#date_out').datepicker('setStartDate', getDate(selected));
-    });
-
-  $('#date').datepicker('setStartDate', truncateDate(new Date())); // <-- SO DOES THIS
-});
-
-function truncateDate(date) {
-  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
-}
+													return new Date(input.date.valueOf());
+												}
+																							$(document).ready(function() {
+												  var dateInput = $('input[name="date"]'); // Our date input has the name "date"
+												  var dateInputF = $('input[name="date_out"]'); 
 												 
-											
+												  
+												  console.log(Date.now());
+												  dateInput.datepicker({
+													format: 'yyyy-mm-dd',
+													
+													todayHighlight: true,
+													autoclose: true,
+													
+													startDate: truncateDate(new Date()) // <-- THIS WORKS
+													
+												  }).on('changeDate',
+													function (selected) {
+														$('#date_out').datepicker('setStartDate', getDate(selected));
+														var checkin= document.getElementById("date").value;
+														var checkout= document.getElementById("date_out").value;
+														
+														if(checkin>checkout){
+															console.log("cumple");
+															$('#date_out').datepicker('setDate', checkin);
+														}
 
-    </script>
+														
+														
+													});
+
+												  $('#date').datepicker('setStartDate', truncateDate(new Date())); // <-- SO DOES THIS
+												});
+
+												function truncateDate(date) {
+												  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+												}
+											
+												
+											
+											
+											</script>
 	
-	 <script>
-	 var getDate = function (input) {
-    return new Date(input.date.valueOf());
-}
-											$(document).ready(function() {
-  var dateInput = $('input[name="date_out"]'); 
- 
-  dateInput.datepicker({
-     format: 'yyyy-mm-dd',
- 
-    todayHighlight: true,
-    autoclose: true,
-    startDate: truncateDate(new Date()) // <-- THIS WORKS
-  }).on('changeDate',
-    function (selected) {
-        $('#date').datepicker('setEndDate', getDate(selected));
-    });;
-
-  $('#date_out').datepicker('setStartDate', truncateDate(new Date())); 
-});
-
-function truncateDate(date) {
-  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
-}
-												 
-											
-
-    </script>
+										
                     						</div>
                                             <div class="col-md-3">
                     							<label for="">Check-in Date</label>
-                    							<input class="form-control" id="date" name="date"  type="text" />
+                    							<input class="form-control" id="date" name="date"  type="text" onkeypress="return false;" autocomplete="off" required/>
                     						</div>
                     						<div class="col-md-3">
                     							<label for="">Check-out Date</label>
-                    							<input type="text" class="form-control datepicker" name="date_out" id="date_out" autocomplete="off" required>
+                    							<input type="text" class="form-control datepicker" name="date_out" id="date_out" autocomplete="off" onkeypress="return false;" autocomplete="off" required>
                     						</div>
                                             <div class="col-md-3">
                     									</div>
@@ -112,26 +96,97 @@ function truncateDate(date) {
                     					</div>
                     				</form>
                                     <script type="text/javascript">
-  $(function() {
-     $( "#search_city" ).autocomplete({
-       source: 'ajax-city-search.php',
-     });
-  });
+									
+										var limite=20;	
+											
+									  $(function() {
+										 $( "#search_city" ).autocomplete({
+										   source: 'ajax-city-search.php',
+										 });
+										 
+										 
+									  });
+									  
+									  $('#camas').change(function(){
+										  var adultos = document.getElementById("camas").value;
+										  var ninos=document.getElementById("camas2").value;
+										  var habitacion=document.getElementById("habitacion").value;
+										  var camas= parseInt(adultos)+parseInt(ninos);
+										  
+										  console.log(camas);
+										   document.getElementById("camas").max=limite-parseInt(ninos);
+										    document.getElementById("camas2").max=limite-parseInt(adultos);
+												if(camas<=4){
+												    document.getElementById("habitacion").value = 1;
+											   }
+											   else if(camas>4 && camas<=limite){
+												   var habitaciones;
+												   habitaciones=parseInt(camas/4);
+												  
+												   document.getElementById("habitacion").value = habitaciones;
+												   document.getElementById("habitacion").min=habitaciones;
+												   document.getElementById("habitacion").max=camas;
+												   console.log(habitacion);
+											   }
+											   else if(camas>limite){
+												   console.log("cumple");
+												   document.getElementById("habitacion").max=limite;
+												  
+												   
+											   }
+											});
+											
+											 $('#camas2').change(function(){
+										  var adultos = document.getElementById("camas").value;
+										  var ninos=document.getElementById("camas2").value;
+										  var habitacion=document.getElementById("habitacion").value;
+										  var camas= parseInt(adultos)+parseInt(ninos);
+										  console.log(camas);
+										   document.getElementById("camas").max=limite-parseInt(ninos);
+										    document.getElementById("camas2").max=limite-parseInt(adultos);
+												if(camas<=4){
+												    document.getElementById("habitacion").value = 1;
+											   }
+											   else if(camas>4 && camas<=limite){
+												   var habitaciones;
+												   habitaciones=parseInt(camas/4);
+												  
+												   document.getElementById("habitacion").value = habitaciones;
+												   document.getElementById("habitacion").min=habitaciones;
+												   document.getElementById("habitacion").max=camas;
+												  
+												   console.log(habitacion);
+											   }
+											   else if(camas> limite){
+												   document.getElementById("habitacion").max=limite;
+												 
+												    document.getElementById("camas2").max=limite-parseInt(adultos);
+											   }
+											});
 
 
-</script>
+									</script>
 
-<script>
-function myFunction() {
-  var habitacion=document.getElementById("habitacion").value;
-  sessionStorage.setItem('habitacion',habitacion);
-  console.log(sessionStorage.getItem('habitacion'));
-  var camas= parseInt(document.getElementById("camas").value)+parseInt(document.getElementById("camas2").value);
-  sessionStorage.setItem('camas',camas);
-  console.log(sessionStorage.getItem('camas'));
-  
-}
-</script>
+											<script>
+										function myFunction() {
+											var adultos = document.getElementById("camas").value;
+											var ninos=document.getElementById("camas2").value;
+											var habitacion=document.getElementById("habitacion").value;
+											var camas= parseInt(adultos)+parseInt(ninos);
+											
+											
+											
+											
+											
+										  
+										  sessionStorage.setItem('habitacion',habitacion);
+										  console.log(sessionStorage.getItem('habitacion'));
+										 
+										  sessionStorage.setItem('camas',camas);
+										  console.log(sessionStorage.getItem('camas'));
+										  
+										}
+										</script>
                     			</div>
                     		</div>
                     	</div>

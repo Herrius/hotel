@@ -1,6 +1,7 @@
 <?php
-$date_in = isset($_POST['date_in']) ? $_POST['date_in'] : date('Y-m-d');
+$date_in = isset($_POST['date']) ? $_POST['date'] : date('Y-m-d');
 $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d',strtotime(date('Y-m-d').' + 3 days'));
+$date_lugar = isset($_POST['search_city'])  ? $_POST["search_city"] : false;
 ?>
 
 	 <!-- Masthead-->
@@ -26,11 +27,15 @@ $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d',strtot
 			        					<div class="row">
 			        						<div class="col-md-3">
 			        							<label for="">Chech-in Date</label>
-			        							<input type="text" class="form-control datepicker" name="date_in" autocomplete="off" value="<?php echo isset($date_in) ? date("Y-m-d",strtotime($date_in)) : "" ?>">
+			        							<input type="text" class="form-control datepicker" name="date_in" autocomplete="off" onkeypress="return false;" value="<?php echo isset($date_in) ? date("Y-m-d",strtotime($date_in)) : "" ?>">
 			        						</div>
 			        						<div class="col-md-3">
 			        							<label for="">Chech-out Date</label>
-			        							<input type="text" class="form-control datepicker" name="date_out" autocomplete="off" value="<?php echo isset($date_out) ? date("Y-m-d",strtotime($date_out)) : "" ?>">
+			        							<input type="text" class="form-control datepicker" name="date_out" autocomplete="off" onkeypress="return false;" value="<?php echo isset($date_out) ? date("Y-m-d",strtotime($date_out)) : "" ?>">
+			        						</div>
+											<div class="col-md-3">
+			        							<label for="">Lugar</label>
+			        							<input type="text" class="form-control" name="lugar"  value="<?php echo isset($date_lugar) ? $_POST["search_city"] : "";?>">
 			        						</div>
 			        						<div class="col-md-3">
 			        							<br>
@@ -51,7 +56,7 @@ $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d',strtot
 						while($row = $cat->fetch_assoc()){
 							$cat_arr[$row['id']] = $row;
 						}
-						$qry = $conn->query("SELECT distinct(category_id),category_id from rooms where id not in (SELECT room_id from checked where '$date_in' BETWEEN date(date_in) and date(date_out) and '$date_out' BETWEEN date(date_in) and date(date_out)  )");
+						$qry = $conn->query("SELECT distinct(category_id),category_id from rooms where Lugar='$date_lugar' and id not in (SELECT room_id from checked where '$date_in' BETWEEN date(date_in) and date(date_out) and '$date_out' BETWEEN date(date_in) and date(date_out) )");
 							while($row= $qry->fetch_assoc()):
 
 						?>
