@@ -121,7 +121,14 @@
 											   }
 											   else if(camas>4 && camas<=limite){
 												   var habitaciones;
-												   habitaciones=parseInt(camas/4);
+												   
+												   habitaciones=camas/4;
+												   if(habitaciones>parseInt(habitaciones)){
+												      habitaciones=parseInt(habitaciones)+1;
+												   
+												   }else{
+													  habitaciones=parseInt(habitaciones)
+												   }
 												  
 												   document.getElementById("habitacion").value = habitaciones;
 												   document.getElementById("habitacion").min=habitaciones;
@@ -149,7 +156,13 @@
 											   }
 											   else if(camas>4 && camas<=limite){
 												   var habitaciones;
-												   habitaciones=parseInt(camas/4);
+												    habitaciones=camas/4;
+												   if(habitaciones>parseInt(habitaciones)){
+												      habitaciones=parseInt(habitaciones)+1;
+												   
+												   }else{
+													  habitaciones=parseInt(habitaciones)
+												   }
 												  
 												   document.getElementById("habitacion").value = habitaciones;
 												   document.getElementById("habitacion").min=habitaciones;
