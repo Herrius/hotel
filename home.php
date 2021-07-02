@@ -98,7 +98,7 @@
                                     <script type="text/javascript">
 									
 										var limite=20;	
-											
+											document.getElementById("habitacion").max=1;
 									  $(function() {
 										 $( "#search_city" ).autocomplete({
 										   source: 'ajax-city-search.php',
@@ -113,11 +113,12 @@
 										  var habitacion=document.getElementById("habitacion").value;
 										  var camas= parseInt(adultos)+parseInt(ninos);
 										  
-										  console.log(camas);
+										 
 										   document.getElementById("camas").max=limite-parseInt(ninos);
 										    document.getElementById("camas2").max=limite-parseInt(adultos);
 												if(camas<=4){
 												    document.getElementById("habitacion").value = 1;
+													document.getElementById("habitacion").max=camas;
 											   }
 											   else if(camas>4 && camas<=limite){
 												   var habitaciones;
@@ -153,6 +154,7 @@
 										    document.getElementById("camas2").max=limite-parseInt(adultos);
 												if(camas<=4){
 												    document.getElementById("habitacion").value = 1;
+													document.getElementById("habitacion").max=camas;
 											   }
 											   else if(camas>4 && camas<=limite){
 												   var habitaciones;
