@@ -70,12 +70,12 @@ $date_lugar = isset($_POST['search_city'])  ? $_POST["search_city"] : false;
 									
 									<div class="align-self-end mt-5">
 										<form action="detalles_reserva.php" id="formulario" method="POST">
-										<h3><b id="precio"><?php echo '$ '.number_format($cat_arr[$row['category_id']]['price'],2) ?></b><span> / per day</span></h3>
+												<h3 id="<?php echo number_format($cat_arr[$row['category_id']]['price'],2) ?>"><b id="precio"><?php echo '$ '.number_format($cat_arr[$row['category_id']]['price'],2) ?></b><span> / per day</span></h3>
 
-									<h4><b id="tipohabitacion">
-										<?php echo $cat_arr[$row['category_id']]['name'] ?>
-									</b></h4>
-											<button class="btn btn-primary  float-right book_now" type="submit" onclick="enviar()">Book now</button>
+										<h4 id="<?php echo $cat_arr[$row['category_id']]['name'] ?>"><b id="tipohabitacion">
+											<?php echo $cat_arr[$row['category_id']]['name'] ?>
+										</b></h4>
+												<button class="btn btn-primary  float-right book_now" type="submit" onclick="enviar()">Book now</button>
 										</form>
 									</div>
 								</div>
@@ -88,15 +88,19 @@ $date_lugar = isset($_POST['search_city'])  ? $_POST["search_city"] : false;
 		</div>	
 </section>
 <script>
-
+$('.book_now').click(function(){
+   precio=$(this).closest('form').find('h3').attr("id");
+   tipodehabitacion=$(this).closest('form').find('h4').attr("id");
+  
+   sessionStorage.setItem('precio',precio);
+	 sessionStorage.setItem('tipodehabitacion',tipodehabitacion);
+});
 function enviar(){
 	console.log("ejecutado");
 	
-   var precio = document.getElementById("precio").value;
-   var tipodehabitacion = document.getElementById("tipohabitacion").value;
-    sessionStorage.setItem('precio',precio);
-	 sessionStorage.setItem('tipodehabitacion',tipodehabitacion);
-debugger;
+  
+    
+
 }
 </script>
 <style type="text/css">
