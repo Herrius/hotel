@@ -70,7 +70,7 @@ $date_lugar = isset($_POST['search_city'])  ? $_POST["search_city"] : false;
 									
 									<div class="align-self-end mt-5">
 										<form action="detalles_reserva.php" id="formulario" method="POST">
-												<h3 id="<?php echo number_format($cat_arr[$row['category_id']]['price'],2) ?>"><b id="precio"><?php echo '$ '.number_format($cat_arr[$row['category_id']]['price'],2) ?></b><span> / per day</span></h3>
+												<h3 id="<?php echo number_format($cat_arr[$row['category_id']]['price'],2) ?>"><b id="precio"><?php echo 'S/. '.number_format($cat_arr[$row['category_id']]['price'],2) ?></b><span> / per day</span></h3>
 
 										<h4 id="<?php echo $cat_arr[$row['category_id']]['name'] ?>"><b id="tipohabitacion">
 											<?php echo $cat_arr[$row['category_id']]['name'] ?>
