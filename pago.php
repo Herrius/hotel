@@ -138,8 +138,35 @@
           </div>
 
           <hr class="my-4">
-
-          <button class="w-100 btn btn-primary btn-lg" type="submit" onclick="checkout()">Continue to checkout</button>
+          <input class="w-100 btn btn-primary btn-lg" type="button" id="buyButton" value="Pagar" data-producto="1">
         </form>
 </div>
 <script src="js/pago.js"></script>
+<!-- Incluyendo Culqi Checkout -->
+<script src="https://checkout.culqi.com/js/v3"></script><script>
+  Culqi.publicKey = 'sk_test_d56bcc17c7cd3c43';
+  Culqi.settings({
+    title: 'Hotel Wanka',
+    currency: 'PEN',
+    description: 'Polo/remera Culqi lover',
+    amount: 3500
+  });
+  $('#buyButton').on('click', function(e) {
+    // Abre el formulario con la configuración en Culqi.settings
+    Culqi.open();
+    e.preventDefault();
+});
+function culqi() {
+  if (Culqi.token) { // ¡Objeto Token creado exitosamente!
+      var token = Culqi.token.id;
+      alert('Se ha creado un token:' + token);
+      //En esta linea de codigo debemos enviar el "Culqi.token.id"
+      //hacia tu servidor con Ajax
+  } else { // ¡Hubo algún problema!
+      // Mostramos JSON de objeto error en consola
+      console.log(Culqi.error);
+      alert(Culqi.error.user_message);
+  }
+};
+
+</script>
