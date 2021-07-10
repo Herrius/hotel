@@ -119,7 +119,6 @@
 												if(camas<=4){
 												    document.getElementById("habitacion").value = 1;
 													document.getElementById("habitacion").max=camas;
-													document.getElementById("habitacion").min=1;
 											   }
 											   else if(camas>4 && camas<=limite){
 												   var habitaciones;
@@ -156,7 +155,6 @@
 												if(camas<=4){
 												    document.getElementById("habitacion").value = 1;
 													document.getElementById("habitacion").max=camas;
-													document.getElementById("habitacion").min=1;
 											   }
 											   else if(camas>4 && camas<=limite){
 												   var habitaciones;
